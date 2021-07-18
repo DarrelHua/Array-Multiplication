@@ -2,26 +2,80 @@
 #include <vector>
 using namespace std;
 
-static vector<vector<int>> matrix1 {
-    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
-};
+// void getVec(vect<vector<int>>& vec1, vect<vector<int>>& vec2,vect<vector<int>>& res, int x)
+// {
 
-static vector<vector<int>> matrix2 {
-    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
-};
+//     for (int i = 0; i < x; i++)
+//     {
+//         for (int j = 0; j < x; j++)
+//         {
+//             vec1[i][j] = rand() % 100 + 1;
+//         }
+//     }
+//     for (int i = 0; i < x; i++)
+//     {
+//         for (int j = 0; j < x; j++)
+//         {
+//             vec2[i][j] = rand() % 100 + 1;
+//         }
+//     }
+//     for (int i = 0; i < x; i++)
+//     {
+//         for (int j = 0; j < x; j++)
+//         {
+//             res[i][j] = rand() % 100 + 1;
+//         }
+//     }
+// };
 
-static vector<vector<int>> results {
-    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
-};
+int main()
+{
+    int x = 0;
 
+    cout << "Enter size of 2D Array: ";
+    cin >> x;
 
-int main() {
+    vector<int> init(x);
 
-    for (int x =0; x < matrix1.size(); x++) {
-        for (int y = 0; y < matrix1[x].size(); y++) {
-            results[x][y] = matrix1[x][y] * matrix2[x][y];
-            cout << results[x][y] << endl;
+    vector<vector<int>> matrix1(x,init);
+
+    vector<vector<int>> matrix2(x,init);
+
+    vector<vector<int>> results(x,init);
+
+    //getVec(matrix1,matrix2,results,x);
+
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            matrix1[i][j] = rand() % 10 + 1;
         }
     }
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            matrix2[i][j] = rand() % 10 + 1;
+        }
+    }
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            results[i][j] = 0;
+        }
+    }
+
+    for (int i = 0; i < matrix1.size(); i++)
+    {
+        for (int j = 0; j < matrix1[i].size(); j++)
+        {
+            results[i][j] = matrix1[i][j] * matrix2[i][j];
+            cout << results[i][j] << " ";
+        }
+        cout << endl;
+    }
+
     return -1;
-}
+};
