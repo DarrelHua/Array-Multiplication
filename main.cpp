@@ -2,17 +2,20 @@
 #include <vector>
 using namespace std;
 
+static vector<vector<int>> matrix1 {
+    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
+};
+
+static vector<vector<int>> matrix2 {
+    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
+};
+
+static vector<vector<int>> results {
+    {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
+};
+
+
 int main() {
-
-    vector<vector<int>> matrix1 {
-        {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
-    };
-
-    vector<vector<int>> matrix2 {
-        {1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}
-    };
-
-    vector<vector<int>> results;
 
     for (int x =0; x < matrix1.size(); x++) {
         for (int y = 0; y < matrix1[x].size(); y++) {
