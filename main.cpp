@@ -46,28 +46,6 @@ int main()
 
     getVec(matrix1,matrix2,results,x);
 
-    // for (int i = 0; i < x; i++)
-    // {
-    //     for (int j = 0; j < x; j++)
-    //     {
-    //         matrix1[i][j] = rand() % 10 + 1;
-    //     }
-    // }
-    // for (int i = 0; i < x; i++)
-    // {
-    //     for (int j = 0; j < x; j++)
-    //     {
-    //         matrix2[i][j] = rand() % 10 + 1;
-    //     }
-    // }
-    // for (int i = 0; i < x; i++)
-    // {
-    //     for (int j = 0; j < x; j++)
-    //     {
-    //         results[i][j] = 0;
-    //     }
-    // }
-
     for (int i = 0; i < matrix1.size(); i++)
     {
         for (int j = 0; j < matrix1[i].size(); j++)
