@@ -2,31 +2,32 @@
 #include <vector>
 using namespace std;
 
-// void getVec(vect<vector<int>>& vec1, vect<vector<int>>& vec2,vect<vector<int>>& res, int x)
-// {
+void getVec(vector<vector<int>> &vec1, vector<vector<int>> &vec2,vector<vector<int>> &res, int x)
+{
 
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             vec1[i][j] = rand() % 100 + 1;
-//         }
-//     }
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             vec2[i][j] = rand() % 100 + 1;
-//         }
-//     }
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             res[i][j] = rand() % 100 + 1;
-//         }
-//     }
-// };
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            vec1[i][j] = rand() % 100 + 1;
+        }
+    }
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            vec2[i][j] = rand() % 100 + 1;
+        }
+    }
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < x; j++)
+        {
+            res[i][j] = rand() % 100 + 1;
+        }
+    }
+    
+};
 
 int main()
 {
@@ -43,29 +44,29 @@ int main()
 
     vector<vector<int>> results(x,init);
 
-    //getVec(matrix1,matrix2,results,x);
+    getVec(matrix1,matrix2,results,x);
 
-    for (int i = 0; i < x; i++)
-    {
-        for (int j = 0; j < x; j++)
-        {
-            matrix1[i][j] = rand() % 10 + 1;
-        }
-    }
-    for (int i = 0; i < x; i++)
-    {
-        for (int j = 0; j < x; j++)
-        {
-            matrix2[i][j] = rand() % 10 + 1;
-        }
-    }
-    for (int i = 0; i < x; i++)
-    {
-        for (int j = 0; j < x; j++)
-        {
-            results[i][j] = 0;
-        }
-    }
+    // for (int i = 0; i < x; i++)
+    // {
+    //     for (int j = 0; j < x; j++)
+    //     {
+    //         matrix1[i][j] = rand() % 10 + 1;
+    //     }
+    // }
+    // for (int i = 0; i < x; i++)
+    // {
+    //     for (int j = 0; j < x; j++)
+    //     {
+    //         matrix2[i][j] = rand() % 10 + 1;
+    //     }
+    // }
+    // for (int i = 0; i < x; i++)
+    // {
+    //     for (int j = 0; j < x; j++)
+    //     {
+    //         results[i][j] = 0;
+    //     }
+    // }
 
     for (int i = 0; i < matrix1.size(); i++)
     {
