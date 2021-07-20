@@ -26,7 +26,6 @@ void getVec(vector<vector<int>> &vec1, vector<vector<int>> &vec2,vector<vector<i
             res[i][j] = rand() % 100 + 1;
         }
     }
-    
 };
 
 int main()
