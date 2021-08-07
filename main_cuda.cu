@@ -3,7 +3,6 @@
 #include <iostream>
 #include <ctime>
 
-// âûïîëíÿåòñÿ íà GPU
 __global__ void matmulDevice(int *A, int *B, int *C, int N)
 {
     int col = blockIdx.x * blockDim.x + threadIdx.x;
