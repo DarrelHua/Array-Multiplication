@@ -1,73 +1,3 @@
-// #include <iostream>
-// #include <vector>
-// using namespace std;
-
-// __global__ void cuda_mul(vector<vector<float>> *vec1, vector<vector<float>> *vec2,vector<vector<float>> *res) {
-//     for (int i = 0; i < vec1.size(); i++)
-//     {
-//         for (int j = 0; j < vec1[i].size(); j++)
-//         {
-//             res[i][j] = vec1[i][j] * vec2[i][j];
-//         }
-
-//     }
-// }
-
-// void getVec(vector<vector<float>> &vec1, vector<vector<float>> &vec2,vector<vector<float>> &res, int x)
-// {
-
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             vec1[i][j] = rand() % 100 + 1;
-//         }
-//     }
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             vec2[i][j] = rand() % 100 + 1;
-//         }
-//     }
-//     for (int i = 0; i < x; i++)
-//     {
-//         for (int j = 0; j < x; j++)
-//         {
-//             res[i][j] = rand() % 100 + 1;
-//         }
-//     }
-// };
-
-// int main()
-// {
-//     int x = 0;
-
-//     cout << "Enter size of 2D Array: ";
-//     cin >> x;
-
-//     // vector<float> init(x);
-
-//     // vector<vector<float>> *matrix1(x,init);
-
-//     // vector<vector<float>> *matrix2(x,init);
-
-//     // vector<vector<float>> *results(x,init);
-
-//     cudaMallocManaged(&matrix1,x*sizeof(float));
-//     cudaMallocManaged(&matrix2,x*sizeof(float));
-//     cudaMallocManaged(&results,x*sizeof(float));
-//     getVec(matrix1,matrix2,results,x);
-
-//     cuda_mul<<<1,1>>>(matrix1,matrix2,results);
-
-//     cudaDeviceSynchronize();
-
-//     cudaFree(matrix1);
-//     cudaFree(matrix2);
-//     cudaFree(results);
-//     return -1;
-// };
 
 #include <cuda_runtime.h>
 #include <iostream>
@@ -129,7 +59,7 @@ int main(void)
     else
         cout << "CudaDevice found! Device count: " << device_count << endl;
 
-    int N = 64; //2048
+    int N = 1024; //2048
     int block_size = 32; //16
     // Êîë-âî èòåðàöèé
     int nIter = 1;
