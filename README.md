@@ -1,2 +1,2 @@
 # Array Multiplication
- Multiplying array. To be scalable and modular
+ 2D Array Multiplier with CUDA enabled GPU parallel processing!
