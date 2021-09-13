@@ -32,6 +32,7 @@ void matmulHost(int *A, int *B, int *C, int N)
     }
 }
 
+//Sourced online to check CudaErrors while calling methods 
 #define checkCudaErrors(ans)                  \
     {                                         \
         gpuAssert((ans), __FILE__, __LINE__); \
@@ -58,14 +59,14 @@ int main(void)
     else
         cout << "CudaDevice found! Device count: " << device_count << endl;
 
-    int N = 1024; //2048
-    int block_size = 32; //16
-    // Êîë-âî èòåðàöèé
+    int N = 2048; //Depending on your device
+    int block_size = 32; 
     int nIter = 1;
 
     unsigned int count = N * N;
     unsigned int mem_size = sizeof(int) * count;
 
+    //Allocate memory of the indicated size
     int *A = (int *)malloc(mem_size);
     int *B = (int *)malloc(mem_size);
     int *h_C = (int *)malloc(mem_size);
@@ -73,6 +74,7 @@ int main(void)
 
     int *d_A, *d_B, *d_C;
 
+    //Pupulate the host arrays (to be copied to device arrays)
     for (int i = 0; i < count; i++)
     {
         A[i] = rand() % 100 + 1;
@@ -94,8 +96,7 @@ int main(void)
     checkCudaErrors(cudaMalloc((void **)&d_A, mem_size));
     checkCudaErrors(cudaMalloc((void **)&d_B, mem_size));
     checkCudaErrors(cudaMalloc((void **)&d_C, mem_size));
-
-    // êîïèðóåì äàííûå íà äåâàéñ
+    
     checkCudaErrors(cudaMemcpy(d_A, A, mem_size,
                                cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_B, B, mem_size,
@@ -109,7 +110,6 @@ int main(void)
     checkCudaErrors(cudaEventCreate(&start));
     checkCudaErrors(cudaEventCreate(&stop));
 
-    // Çàïèñûâàåì íà÷àëî ñîáûòèÿ
     checkCudaErrors(cudaEventRecord(start, 0));
 
     for (int j = 0; j < nIter; j++)
@@ -117,10 +117,8 @@ int main(void)
         matmulDevice<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
     }
 
-    // Çàïèñûâàåì êîíåö ñîáûòèÿ
     checkCudaErrors(cudaEventRecord(stop, 0));
 
-    // Æäåì êîíöà ñîáûòèÿ
     checkCudaErrors(cudaEventSynchronize(stop));
 
     float msecTotal = 0.0f;
@@ -132,7 +130,6 @@ int main(void)
 
     cudaDeviceSynchronize();
 
-    // êîïèðóåì ðåçóëüòàò ñ äåâàéñà
     checkCudaErrors(cudaMemcpy(hCuda_C, d_C, mem_size, cudaMemcpyDeviceToHost));
     cudaDeviceSynchronize();
 
@@ -150,9 +147,9 @@ int main(void)
     }
 
     if (test)
-        cout << "PASS!" << endl;
+        cout << "CUDA Array Multiplication Successful" << endl;
     else
-        cout << "WASTED!" << endl;
+        cout << "CUDA Array Multiplication Failed" << endl;
 
     return 0;
 }
